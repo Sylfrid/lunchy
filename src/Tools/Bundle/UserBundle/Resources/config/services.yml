@@ -2,6 +2,8 @@ parameters:
 #    tools_user.example.class: Tools\Bundle\UserBundle\Example
 
 services:
-#    tools_user.example:
-#        class: %tools_user.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+    tools_user.registration.form.type:
+        class: Tools\Bundle\UserBundle\Form\Type\RegistrationFormType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: tools_user_registration }
