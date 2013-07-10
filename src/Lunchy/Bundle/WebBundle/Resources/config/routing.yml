@@ -1,0 +1,3 @@
+lunchy_web_homepage:
+    pattern:  /
+    defaults: { _controller: LunchyWebBundle:Home:index }

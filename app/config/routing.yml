@@ -1,3 +1,7 @@
+lunchy_web:
+    resource: "@LunchyWebBundle/Resources/config/routing.yml"
+    prefix:   /
+
 tools_user:
     resource: "@ToolsUserBundle/Resources/config/routing.yml"
     prefix:   /

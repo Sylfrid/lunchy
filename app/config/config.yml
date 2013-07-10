@@ -24,6 +24,9 @@ framework:
 twig:
     debug:            %kernel.debug%
     strict_variables: %kernel.debug%
+    globals:
+        websiteUseFacebookLogin: %websiteUseFacebookLogin%
+        facebookLocale:          %facebookLocale%
 
 # Assetic Configuration
 assetic:
@@ -76,12 +79,10 @@ services:
             facebook: "@fos_facebook.api"
             userManager: "@fos_user.user_manager"
             validator: "@validator"
-            container: "@service_container"
             
 fos_facebook:
-      file:   %kernel.root_dir%/../vendor/facebook/php-sdk/src/base_facebook.php
-      alias:  facebook
-      app_id: %facebookAppId%
-      secret: %facebookAppSecret%
-      cookie: true
-      permissions: [email]
+    alias:  facebook
+    app_id: %facebookAppId%
+    secret: %facebookAppSecret%
+    cookie: true
+    permissions: [email, user_birthday, user_location]

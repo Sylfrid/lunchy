@@ -1,0 +1,60 @@
+{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+<div class="navbar-text pull-right"><span class="pull-left">Connecté en tant que</span> 
+    <div class="btn-group">
+        <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+        {{ app.user.username }}
+        <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+            <li><a href="{{ path('fos_user_profile_show') }}">Voir mon profil</a></li>
+            <li><a href="{{ path('fos_user_profile_edit') }}">Editer mon profil</a></li>
+            <li><a href="{{ path('cookbook_book_edition') }}">Mes livres de recettes</a></li>
+            <li><a href="{{ path('fos_user_security_logout') }}">Me déconnecter</a></li>
+        </ul>
+    </div>
+</div>
+{% else %}
+    {% if websiteUseFacebookLogin %}
+        {{ facebook_initialize({'xfbml': true, 'fbAsyncInit': 'onFbInit();', 'culture': facebookLocale}) }}
+        <script>
+            function goLogIn(){
+                window.location = "{{ path('_security_check') }}";
+            }
+
+            function onFbInit() {
+                if (typeof(FB) != 'undefined' && FB != null ) {
+                    FB.Event.subscribe('auth.statusChange', function(response) {
+                        if (response.session || response.authResponse) {
+                            setTimeout(goLogIn, 500);
+                        } else {
+                            window.location = "{{ path('_security_logout') }}";
+                        }
+                    });
+                }
+            }
+        </script>
+    {% endif %}
+    <form class="navbar-form pull-right" action="{{ path("fos_user_security_check") }}" method="post">
+
+        <input type="text" id="username" name="_username" placeholder="{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}" class="span2" />
+        <input type="password" id="password" name="_password" placeholder="{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}" class="span2" />
+        <button type="submit" id="_submit" name="_submit" class="btn">{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}</button>
+        <div id="social_login" class="pull-right">
+                {% if websiteUseFacebookLogin %}        
+                    {{ facebook_login_button({'autologoutlink': false}) }}
+                {% endif %}
+            </div>
+        <a href="{{ path('fos_user_registration_register') }}" class="btn">Creer un compte</a>
+        {#
+        <div>
+            <input type="checkbox" class="checkbox pull-left" id="remember_me" name="_remember_me" value="on" />
+            <label for="remember_me" class="span2 navbar-text">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
+
+        </div>
+        #}
+
+
+    </form>  
+{% endif %}
+                
+    
