@@ -1,14 +1,12 @@
 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-<div class="navbar-text pull-right"><span class="pull-left">Connecté en tant que</span> 
-    <div class="btn-group">
-        <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+<div><span class="pull-left">Connecté en tant que</span> 
+    <div>
+        <a href="#">
         {{ app.user.username }}
-        <span class="caret"></span>
         </a>
-        <ul class="dropdown-menu">
+        <ul>
             <li><a href="{{ path('fos_user_profile_show') }}">Voir mon profil</a></li>
             <li><a href="{{ path('fos_user_profile_edit') }}">Editer mon profil</a></li>
-            <li><a href="{{ path('cookbook_book_edition') }}">Mes livres de recettes</a></li>
             <li><a href="{{ path('fos_user_security_logout') }}">Me déconnecter</a></li>
         </ul>
     </div>
@@ -34,10 +32,10 @@
             }
         </script>
     {% endif %}
-    <form class="navbar-form pull-right" action="{{ path("fos_user_security_check") }}" method="post">
+    <form action="{{ path("fos_user_security_check") }}" method="post">
 
-        <input type="text" id="username" name="_username" placeholder="{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}" class="span2" />
-        <input type="password" id="password" name="_password" placeholder="{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}" class="span2" />
+        <input type="text" id="username" name="_username" placeholder="{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}" />
+        <input type="password" id="password" name="_password" placeholder="{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}" />
         <button type="submit" id="_submit" name="_submit" class="btn">{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}</button>
         <div id="social_login" class="pull-right">
                 {% if websiteUseFacebookLogin %}        

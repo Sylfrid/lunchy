@@ -74,6 +74,13 @@ fos_user:
     registration:
         form:
             type: tools_user_registration
+        confirmation:
+            from_email:
+                address:        "%webmaster_email%"
+                sender_name:    "admin"
+            enabled:    true
+            template:   FOSUserBundle:Registration:email.txt.twig
+
     profile:       
         form:          
             type: tools_user_registration
@@ -91,4 +98,4 @@ fos_facebook:
     app_id: %facebookAppId%
     secret: %facebookAppSecret%
     cookie: true
-    permissions: [email, user_birthday, user_location]
+    permissions: [email]

@@ -12,8 +12,8 @@ class RegistrationFormType extends BaseType
         parent::buildForm($builder, $options);
 
         // Ajoutez vos champs ici, revoilà notre champ *location* :
-        $builder->add('firstname' ,'text', array('label'  => 'Nom'))
-                ->add('lastname' ,'text', array('label'  => 'Prénom'));
+        $builder->add('prenom' ,'text', array('label'  => 'Prénom'))
+                ->add('nom' ,'text', array('label'  => 'Nom'));
     }
 
     public function getName()

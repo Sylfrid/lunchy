@@ -1,8 +1,7 @@
 <?php
-
 namespace Tools\Bundle\UserBundle\Entity;
 
-use FOS\UserBundle\Model\User as BaseUser;
+use FOS\UserBundle\Entity\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -21,21 +20,42 @@ class User extends BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(name="firstname", type="string", length=255)
+     * @ORM\Column(name="prenom", type="string", length=255)
      */
-    protected $firstname;
+    protected $prenom;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="lastname", type="string", length=255)
+     * @ORM\Column(name="nom", type="string", length=255)
      */
-    protected $lastname;
+    protected $nom;
     
     /**
      * @var string
      *
-     * @ORM\Column(name="facebookId", type="string", length=255)
+     * @ORM\Column(name="adresse", type="string", nullable=true, length=255)
+     */
+    protected $adresse;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ville", type="string", nullable=true, length=255)
+     */
+    protected $ville;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="codepostal", type="string", nullable=true, length=10)
+     */
+    protected $codepostal;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="facebookId", type="string", nullable=true, length=255)
      */
     protected $facebookId;
 
@@ -59,42 +79,42 @@ class User extends BaseUser
     /**
      * @return string
      */
-    public function getFirstname()
+    public function getPrenom()
     {
-        return $this->firstname;
+        return $this->prenom;
     }
 
     /**
-     * @param string $firstname
+     * @param string $prenom
      */
-    public function setFirstname($firstname)
+    public function setPrenom($prenom)
     {
-        $this->firstname = $firstname;
+        $this->prenom = $prenom;
     }
 
     /**
      * @return string
      */
-    public function getLastname()
+    public function getNom()
     {
-        return $this->lastname;
+        return $this->nom;
     }
 
     /**
-     * @param string $lastname
+     * @param string $nom
      */
-    public function setLastname($lastname)
+    public function setNom($nom)
     {
-        $this->lastname = $lastname;
+        $this->nom = $nom;
     }
 
     /**
-     * Get the full name of the user (first + last name)
+     * Retourne le nom complet de l'utilisateur (prenom + nom)
      * @return string
      */
-    public function getFullName()
+    public function getNomComplet()
     {
-        return $this->getFirstname() . ' ' . $this->getLastname();
+        return $this->getPrenom() . ' ' . $this->getNom();
     }
 
     /**
@@ -125,10 +145,10 @@ class User extends BaseUser
             $this->addRole('ROLE_FACEBOOK');
         }
         if (isset($fbdata['first_name'])) {
-            $this->setFirstname($fbdata['first_name']);
+            $this->setPrenom($fbdata['first_name']);
         }
         if (isset($fbdata['last_name'])) {
-            $this->setLastname($fbdata['last_name']);
+            $this->setNom($fbdata['last_name']);
         }
         if (isset($fbdata['email'])) {
             $this->setEmail($fbdata['email']);

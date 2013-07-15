@@ -5,4 +5,8 @@ lunchy_web:
 tools_user:
     resource: "@ToolsUserBundle/Resources/config/routing.yml"
     prefix:   /
-    
+
+_security_check:
+    pattern:  /login_fb_check
+_security_logout:
+    pattern:  /logout

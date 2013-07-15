@@ -1,0 +1,27 @@
+header, footer{
+    height:100px;
+    background-color: #ccc;
+}
+div.content{
+    width:1000px;
+    margin:auto;
+}
+
+form label{
+    width:150px;
+}
+form > div > div{
+    margin:5px;
+}
+
+textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
+  -webkit-box-shadow:rgba(0, 0, 0, 0.0745098) 0 1px 1px inset;
+  -webkit-transition:border 0.2s linear, box-shadow 0.2s linear;
+  background-color:#FFFFFF;
+  border:1px solid #CCCCCC;
+  box-shadow:rgba(0, 0, 0, 0.0745098) 0 1px 1px inset;
+  transition:border 0.2s linear, box-shadow 0.2s linear;
+  border-radius:4px;
+  width:200px;
+  padding:4px;
+}
