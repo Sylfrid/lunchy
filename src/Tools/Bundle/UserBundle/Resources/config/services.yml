@@ -7,3 +7,8 @@ services:
         arguments: [%fos_user.model.user.class%]
         tags:
             - { name: form.type, alias: tools_user_registration }
+    tools_user.profile.form.type:
+        class: Tools\Bundle\UserBundle\Form\Type\ProfileFormType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: tools_user_profile }

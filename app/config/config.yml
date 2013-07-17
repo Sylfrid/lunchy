@@ -2,6 +2,7 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: facebookParameters.ini }
+    - { resource: pictureConfig.yml }
 
 framework:
     translator: ~
@@ -83,7 +84,7 @@ fos_user:
 
     profile:       
         form:          
-            type: tools_user_registration
+            type: tools_user_profile
     
 services:
     my.facebook.user:

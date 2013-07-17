@@ -21,3 +21,7 @@ _security_check:
     pattern:  /login_fb_check
 _security_logout:
     pattern:  /logout
+    
+tools_user_avatar_edition:
+    pattern:  /profile/avatar
+    defaults: { _controller: ToolsUserBundle:Avatar:avatar }

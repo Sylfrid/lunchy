@@ -1,0 +1,13 @@
+<div class="fos_user_user_show">
+    {% if app.user.photo %}
+    <img src="{{ app.user.photo | apply_filter('big_avatar') }}" />
+    {% endif %}
+    <p>{{ 'profile.show.username'|trans({}, 'FOSUserBundle') }}: {{ app.user.username }}</p>
+    <p>{{ 'profile.show.email'|trans({}, 'FOSUserBundle') }}: {{ app.user.email }}</p>
+    <p>Prénom : {{ app.user.prenom }}</p> 
+    <p>Nom : {{ app.user.nom }}</p>
+     
+</div>
+<a href="{{ path('fos_user_profile_edit') }}" class="btn">Modifier mes infos</a>
+<a href="{{ path('tools_user_avatar_edition') }}" class="btn">Editer avatar</a>
+

@@ -20,6 +20,7 @@ class AppKernel extends Kernel
             new Tools\Bundle\UserBundle\ToolsUserBundle(),
             new FOS\FacebookBundle\FOSFacebookBundle(),
             new Lunchy\Bundle\WebBundle\LunchyWebBundle(),
+            new Avalanche\Bundle\ImagineBundle\AvalancheImagineBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

@@ -10,3 +10,7 @@ _security_check:
     pattern:  /login_fb_check
 _security_logout:
     pattern:  /logout
+    
+_imagine:
+    resource: .
+    type:     imagine

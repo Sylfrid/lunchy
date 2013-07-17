@@ -1,0 +1,11 @@
+avalanche_imagine:
+    filters:
+        mini_avatar:
+            type:    thumbnail
+            options: { size: [29, 30], mode: outbound }
+        big_avatar:
+            type:    thumbnail
+            options: { size: [174, 180], mode: outbound }
+        medium_cook:
+            type:    thumbnail
+            options: { size: [160, 120], mode: outbound }

@@ -33,7 +33,7 @@
         </script>
     {% endif %}
     <form action="{{ path("fos_user_security_check") }}" method="post">
-
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
         <input type="text" id="username" name="_username" placeholder="{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}" />
         <input type="password" id="password" name="_password" placeholder="{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}" />
         <button type="submit" id="_submit" name="_submit" class="btn">{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}</button>
