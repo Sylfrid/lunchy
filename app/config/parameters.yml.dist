@@ -13,4 +13,4 @@ parameters:
 
     locale:            fr
     secret:            ThisTokenIsNotSoSecretChangeIt
-    webmaster_email: sylfrid@gmail.com
+    webmaster_email:   sylfrid@gmail.com
