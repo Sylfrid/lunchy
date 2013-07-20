@@ -135,14 +135,15 @@
     </target>
 
     <target name="vendors" description="Update vendors">
-        <exec executable="${basedir}/bin/vendors" failonerror="true">
-            <arg value="update" />
-        </exec>
-    </target>
+    <exec executable="php" failonerror="true">
+        <arg value="composer.phar" />
+        <arg value="update" />
+    </exec>
+  </target>
 
     <target name="parameters" description="Copy parameters">
         <exec executable="cp" failonerror="true">
-            <arg path="app/config/parameters.ini.template" />
+            <arg path="app/config/parameters.ini.dist" />
             <arg path="app/config/parameters.ini" />
         </exec>
     </target>
